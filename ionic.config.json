@@ -1,0 +1,7 @@
+{
+  "name": "greetgo-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
