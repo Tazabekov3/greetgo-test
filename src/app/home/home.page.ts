@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Contacts } from '@capacitor-community/contacts';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,9 @@ import { Contacts } from '@capacitor-community/contacts';
 })
 export class HomePage {
 
-  permission: any;
   contacts: any[] = [];
 
-  constructor() {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.getContacts();
@@ -20,7 +20,6 @@ export class HomePage {
   async getContacts() {
     try {
       const permission = await Contacts.requestPermissions();
-      this.permission = permission;
       console.log("permission: ", permission.contacts);
 
       if (!permission?.contacts) return;
@@ -41,6 +40,11 @@ export class HomePage {
     catch (e) {
       console.log(e);
     }
+  }
+
+  goToSecondPage(contact: any) {
+    const id = contact.contactId;
+    this.router.navigateByUrl(`/second-page/${id}`);
   }
 
 }

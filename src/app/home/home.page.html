@@ -14,7 +14,7 @@
 <ion-content>
   <ion-list class="contact-list" *ngIf="contacts.length > 0">
 
-    <ion-item class="contact-list-item" *ngFor="let contact of contacts">
+    <ion-item button *ngFor="let contact of contacts" detail="false" (click)="goToSecondPage(contact)" class="contact-list-item">
 
       <ion-label class="contact-name">
         {{contact?.name?.display}}
