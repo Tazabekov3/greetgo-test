@@ -1,20 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header class="header">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Greetgo
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-list class="contact-list" *ngIf="contacts.length > 0">
+    <ion-item class="contact-list-item" *ngFor="let contact of contacts">
+      <ion-label class="contact-name">
+        {{contact?.name?.display}}
+      </ion-label>
+      <div class="contact-secondary">
+        <p>
+          <ion-text class="contact-secondary-text contact-number">
+            {{contact?.phones[0].number}}
+          </ion-text>
+        </p>
+        <p>
+          <ion-text class="contact-secondary-text contact-email">
+            {{contact?.emails[0].number}}
+          </ion-text>
+        </p>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
