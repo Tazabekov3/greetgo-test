@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Contacts } from '@capacitor-community/contacts';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +9,18 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
+
+  ngOnInit() {
+
+  }
+
+  async getContacts() {
+    try {
+      const permission = await Contacts.requestPermissions();
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
 
 }
