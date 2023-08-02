@@ -1,29 +1,38 @@
 <ion-header class="header">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar color="dark">
+    <ion-title color="light">
       Greetgo
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="qr-code-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list class="contact-list" *ngIf="contacts.length > 0">
+
     <ion-item class="contact-list-item" *ngFor="let contact of contacts">
+
       <ion-label class="contact-name">
         {{contact?.name?.display}}
+        <p class="contact-secondary-text">
+          {{contact?.phones[0].number}}
+        </p>
       </ion-label>
-      <div class="contact-secondary">
-        <p>
-          <ion-text class="contact-secondary-text contact-number">
-            {{contact?.phones[0].number}}
-          </ion-text>
-        </p>
-        <p>
-          <ion-text class="contact-secondary-text contact-email">
-            {{contact?.emails[0].number}}
-          </ion-text>
-        </p>
-      </div>
+
+      <ion-buttons slot="end" class="contact-buttons">
+        <ion-button color="dark" shape="round">
+          <ion-icon name="call-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="dark" shape="round">
+          <ion-icon name="chatbubble-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
     </ion-item>
+
   </ion-list>
 </ion-content>
