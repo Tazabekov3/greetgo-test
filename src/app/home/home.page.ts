@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Contacts } from '@capacitor-community/contacts';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -49,7 +49,13 @@ export class HomePage {
 
   async deleteContact(contact: any) {
     try {
-      Contacts.deleteContact(contact.contactId);
+      const permission = await Contacts.requestPermissions();
+      console.log("permission: ", permission.contacts);
+
+      if (!permission?.contacts) return;
+      else if (permission?.contacts == "granted") {
+        Contacts.deleteContact(contact.contactId);
+      }
     }
     catch (e) {
       console.log(e);

@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'authentification',
     pathMatch: 'full'
   },
   {
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'second-page/:id',
     loadChildren: () => import('./pages/second-page/second-page.module').then( m => m.SecondPagePageModule)
+  },
+  {
+    path: 'authentification',
+    loadChildren: () => import('./pages/authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
 ];
 
