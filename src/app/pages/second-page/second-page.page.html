@@ -1,5 +1,8 @@
 <ion-header class="header">
   <ion-toolbar color="dark">
+    <ion-title color="light">
+      {{contact?.name.display}}
+    </ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -12,5 +15,63 @@
 </ion-header>
 
 <ion-content>
-  {{ contact | json }}
+  <!-- {{ contact | json }} -->
+
+  <!-- <ion-list> -->
+
+    <ion-label lines="none" class="center">
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+    </ion-label>
+    <ion-label class="center">
+      <h1>
+        {{contact?.name.display}}
+      </h1>
+    </ion-label>
+
+    <ion-list>
+      <ion-list-header *ngIf="contact?.phones">
+        <ion-label color="medium">
+          Номера
+        </ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let phone of contact?.phones">
+        <ion-label>
+          {{phone.number}}
+        </ion-label>
+        <ion-buttons slot="end" class="contact-buttons">
+          <ion-button color="dark" shape="round">
+            <ion-icon name="call-outline"></ion-icon>
+          </ion-button>
+          <ion-button color="dark" shape="round">
+            <ion-icon name="chatbubble-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header *ngIf="contact?.emails">
+        <ion-label color="medium">
+          Адреса почт
+        </ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let email of contact?.emails">
+        <ion-label>
+          {{email.address}}
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button color="dark" shape="round">
+            <ion-icon name="mail-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+
+    <ion-button color="danger" shape="round">
+      Удалить контакт
+    </ion-button>
+
+  <!-- </ion-list> -->
 </ion-content>

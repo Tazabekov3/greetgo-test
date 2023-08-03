@@ -12,7 +12,6 @@ export class SecondPagePage implements OnInit {
   contact: any;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
-    this.getContact();
   }
 
   ngOnInit() {

@@ -47,4 +47,13 @@ export class HomePage {
     this.router.navigateByUrl(`/second-page/${id}`);
   }
 
+  async deleteContact(contact: any) {
+    try {
+      Contacts.deleteContact(contact.contactId);
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
 }
