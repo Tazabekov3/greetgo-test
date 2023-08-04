@@ -31,3 +31,8 @@
 * {
   font-family: 'Montserrat', sans-serif;
 }
+
+body.scanner-active {
+  --background: transparent;
+  --ion-background-color: transparent;
+}
