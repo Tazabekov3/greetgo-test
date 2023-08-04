@@ -6,8 +6,9 @@
 2. Распаковать архив
 3. При наличии на компьютере Android Studio открыть приложение, а затем эмулятор
 4. Находясь в папке проекта, запустить в терминале следующую команду:
-    ionic cap run android -l --external
+    ```ionic cap run android -l --external```
 5. При открытии приложение запросит данные для входа. Логин и пароль — login и password, соответственно
+6. Сборка APK находится по адресу ```greetgo-test\android\app\build\outputs\apk\debug\app-debug.apk```
 
 ## Приложение
 
